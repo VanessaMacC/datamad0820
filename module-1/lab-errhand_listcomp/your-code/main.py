@@ -3,8 +3,8 @@
 import math
 import os
 import random
+import sys
 
-"""
 #Example: 
 
 eggs = (1,3,8,3,2)
@@ -129,40 +129,60 @@ except ZeroDivisionError:
     print('Error! Consulta documentación https://docs.python.org/es/3.8/tutorial/index.html')
 finally:
     print("All Done")
-"""
+
 #16. Handle the exception thrown by the code below by using try and except blocks. 
 # Check in provided resources the type of error you may use. 
-"""
-abc=[10,20,20]
-print(abc[3])
 
+abc=[10,20,20]
+try:
+    print(sum(abc))
+    print('El código es correcto')
+    print(abc[3])
+except Exception as exc:
+    print ('Se ha producido un error del tipo' )
+    print (type(exc))
 
 #17. Handle at least two kind of different exceptions when dividing a couple of numbers provided by the user. 
 # Hint: take a look on python input function. 
 # Check in provided resources the type of error you may use. 
 
-
-
+def division(a,b):
+    print ('--- INICIO ---')
+    try:
+        return a/b
+    except ZeroDivisionError:
+        print('No se permite la división por cero')
+    except TypeError:
+        print('El tipo de dato es incorrecto')
+    finally:
+        print('--- FIN ---')
+division(5,0)
 
 #18. Handle the exception thrown by the code below by using try and except blocks. 
 # Check in provided resources the type of error you may use. 
-
-f = open('testfile','r')
-f.write('Test write this')
-
-
-
+try:
+    f = open('testfile','r')
+    f.write('Test write this')
+    print('Archivo ubicado en local')
+except FileNotFoundError: 
+    print('El archivo no ha sido encontrado', type(exc)
 
 #19. Handle the exceptions that can be thrown by the code below using try and except blocks. 
 #Hint: the file could not exist and the data could not be convertable to int
 
-fp = open('myfile.txt')
-    line = f.readline()
-    i = int(s.strip())
+try:
+    fp = open('myfile.txt'):
+    try:
+        line = f.readline()
+        i = int(s.strip())
+    except Indentation Error: 
+        print('Expected an indented block')
+except FileNotFoundError:
+    print ('No such file')
 
 
 
-
+"""
 #20. The following function can only run on a Linux system. 
 # The assert in this function will throw an exception if you call it on an operating system other than Linux. 
 # Handle this exception using try and except blocks. 
@@ -172,7 +192,6 @@ def linux_interaction():
     assert ('linux' in sys.platform), "Function can only run on Linux systems."
     print('Doing something.')
 
-
 # Bonus Questions:
 
 # You will need to make some research on dictionary comprehension to solve the following questions
@@ -181,16 +200,11 @@ def linux_interaction():
 # Hint: we need to continually keep checking until we get an integer.
 # Use a while loop with a try,except, else block to account for incorrect inputs.
 
-
-
-
 # 22. Find all of the numbers from 1-1000 that are divisible by any single digit besides 1 (2-9). 
 # Use results as the name of the list 
 
-
-
-
-
+divisible_by_num =  [number for number in range(1,1001) if True in [True for divisor in range(2,10) if number % divisor == 0]]
+print(divisible_by_num)
 
 # 23. Define a customised exception to handle not accepted values. 
 # You have the following user inputs and the Num_of_sections can not be less than 2.
@@ -200,3 +214,4 @@ Total_Marks = int(input("Enter Total Marks Scored: "))
 Num_of_Sections = int(input("Enter Num of Sections: "))
 
 """
+
