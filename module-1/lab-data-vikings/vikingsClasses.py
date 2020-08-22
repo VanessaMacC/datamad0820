@@ -1,3 +1,4 @@
+import random
 
 # Soldier
 
@@ -31,16 +32,21 @@ class Viking(Soldier):
     def battleCry(self):
         return "Odin Owns You All!"
 
-
-
 # Saxon
 
+class Saxon(Soldier):
 
-class Saxon:
-    pass
+    def __init__(self, health, strength):
+        super().__init__(health, strength)
+
+    def receiveDamage(self, damage):
+        super().receiveDamage(damage)
+        if self.health>0:
+            return f"A Saxon has received {damage} points of damage"
+        else:
+            return "A Saxon has died in combat"
 
 # War
-
 
 class War:
     pass
