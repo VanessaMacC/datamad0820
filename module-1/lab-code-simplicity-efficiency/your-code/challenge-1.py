@@ -179,16 +179,24 @@ nb = {'zero': 0,
             'two': 2,
             'three':3,
             'four':4,
-            'five': 5}
+            'five': 5,
+            'six': 6,
+            'seven':7,
+            'eight': 8,
+            'nine': 9,
+            'ten':10}
 
 def calculator(number1, number2, operator):
     number_1=nb[number1]
     number_2=nb[number2]
     if number_1 in nb.values() and number_2 in nb.values():
         if operator == "plus":
-            print(f'{a} {operator} {b} equals', number_1+number_2)
+            print(f'{a} {operator} {c} equals', [k for k,v in nb.items() if v==(number_1+number_2)][0])
         if operator == "minus":
-            print(f'{a} {operator} {b} equals', number_1-number_2)
+            if number_1>=number_2:
+                print(f'{a} {operator} {c} equals', [k for k,v in nb.items() if v==(number_1-number_2)][0])
+            else:
+                print(f'{a} {operator} {c} equals negative', [k for k,v in nb.items() if v==(number_2-number_1)][0])
     else:
         print('This operation can not be done') 
 calculator(a,c,b) 
